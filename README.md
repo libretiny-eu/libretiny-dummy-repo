@@ -1,2 +1,2 @@
-# dummy-repo
-Some dummy repo
+# libretiny-dummy-repo
+LibreTiny dummy repo (better)
