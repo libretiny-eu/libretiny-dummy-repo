@@ -2,6 +2,8 @@ name: Release
 on:
   push:
     tags: ["v*.*.*"]
+permissions:
+  contents: write
 jobs:
   lint-python:
     name: Run Python lint
@@ -14,12 +16,5 @@ jobs:
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
   release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Add GitHub release assets
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            README.md
+    name: Release test
+    uses: kuba2k2/kuba2k2/.github/workflows/release-test.yml@master
